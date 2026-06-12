@@ -453,7 +453,7 @@ PERSONAS = {
             "https://www.petmd.com/rss.xml",
         ],
         "reddit_subs": ["AskVet", "Veterinary"],
-        "writing_focus": "家養寵物常見症狀的鑑別診斷、半夜該不該掛急診的判斷、飼主常見的恐慌誤判",
+        "writing_focus": "家養寵物常見症狀的鑑別診斷、半夜該不該掛急診的判斷、飼主常見的恐慌誤判;品種之間的生理/性格差異比較時,必須附上基因學或獸醫行為學的真實依據(例如X染色體遺傳、特定基因座、品種特化的骨骼結構),不能只憑印象說「這個品種比較兇」",
     },
     "渡鴉": {
         "title": "版主",
@@ -482,7 +482,7 @@ PERSONAS = {
             "https://www.dogster.com/feed",
         ],
         "reddit_subs": ["dogs", "cats", "pets"],
-        "writing_focus": "飼料/保健品成分拆解與真實成本、各國餵食爭議與奇觀、行銷話術的識別",
+        "writing_focus": "飼料/保健品成分拆解與真實成本、各國餵食爭議與奇觀、行銷話術的識別;品種之間的性格/行為差異比較時,要用數字跟真實案例支撐(犬隻智商研究排名、品種特化行為的統計數據),不能只是「我覺得這個品種比較聰明」",
     },
     "Trilobite": {
         "title": "版主",
@@ -658,8 +658,34 @@ SEED_TOPICS = [
 
 
 # ============================================================
-# 納斯達坑題庫:從 radar_topics.json 讀取
+# 額外題庫:SOS急診室(50題) + 品種比較(50題)
+# 從外部JSON讀取,扁平化成list
 # ============================================================
+def _load_flat_topics(filename):
+    path = os.path.join(os.path.dirname(__file__), filename)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        flat = []
+        for group in data.get("groups", []):
+            flat.extend(group.get("topics", []))
+        return flat
+    except Exception as e:
+        print(f"[警告] 讀取 {filename} 失敗: {e}")
+        return []
+
+SOS_TOPICS = _load_flat_topics("sos_topics.json")
+BREED_TOPICS = _load_flat_topics("breed_topics.json")
+
+# 各版主專屬的額外題庫池
+# - SOS急診題庫(50題,五物種急症場景) → 只給Scholar(S.O.S 3AM急診室)
+# - 品種比較題庫(50題,反差式提問,需附科學依據) → Scholar + 渡鴉都可用
+PERSONA_EXTRA_TOPICS = {
+    "Scholar": SOS_TOPICS + BREED_TOPICS,
+    "渡鴉": BREED_TOPICS,
+    "Trilobite": [],
+    "Sword Smith": [],
+}
 def _load_radar_topics():
     path = os.path.join(os.path.dirname(__file__), "radar_topics.json")
     try:
@@ -1242,7 +1268,7 @@ def generate_original_article(persona_name, persona, used_topics=None):
     if used_topics is None:
         used_topics = set()
 
-    all_seeds = CURATED_TOPICS + ORIGINAL_TOPICS + SEED_TOPICS
+    all_seeds = CURATED_TOPICS + ORIGINAL_TOPICS + SEED_TOPICS + PERSONA_EXTRA_TOPICS.get(persona_name, [])
     available_seeds = [t for t in all_seeds if t not in used_topics]
 
     if not available_seeds:
