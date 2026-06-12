@@ -1,0 +1,54 @@
+name: BLACK COLLARS Daily Update
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TZ: 'Asia/Taipei'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Run BLACK COLLARS
+        env:
+         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+         GOOGLE_API_KEY_2: ${{ secrets.GOOGLE_API_KEY_2 }}
+         GOOGLE_API_KEY_3: ${{ secrets.GOOGLE_API_KEY_3 }}
+         GOOGLE_API_KEY_4: ${{ secrets.GOOGLE_API_KEY_4 }}
+         GOOGLE_API_KEY_5: ${{ secrets.GOOGLE_API_KEY_5 }}
+         GOOGLE_API_KEY_6: ${{ secrets.GOOGLE_API_KEY_6 }}
+         GOOGLE_API_KEY_7: ${{ secrets.GOOGLE_API_KEY_7 }}
+         GOOGLE_API_KEY_8: ${{ secrets.GOOGLE_API_KEY_8 }}
+         OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+         YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python app.py
+      
+      - name: Commit history file
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add articles_history.json data.json naspit_state.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update articles history"
+          git pull --rebase
+          git push
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
