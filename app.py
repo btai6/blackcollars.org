@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 BLACK COLLARS — 華人寵物論壇自動化系統
-- 8 板塊首頁：WebMeowD / PetCon / FurWell / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
+- 8 板塊首頁：WebMeowD / Bark Market / Fur-well / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
 - 四版主分工:
     Scholar     → WebMeowD     (學術期刊 + 大學衛教)
-    渡鴉        → PetCon  (英文寵物社群 + 產業內幕)
-    Trilobite   → FurWell     (日文 + 歐洲寵物資訊)
+    渡鴉        → Bark Market  (英文寵物社群 + 產業內幕)
+    Trilobite   → Fur-well     (日文 + 歐洲寵物資訊)
     Sword Smith → Fairy Tails  (華語論壇 + 全球寶貝怪談)
 - Fowlplay 跨物種大火拚:35題獨立排行榜、5題位輪播、100票進名人堂
 - 納斯達坑:26場雷達圖隨機不重複、一週一場、四版主輪值裁判、不偏袒
@@ -264,22 +264,14 @@ _MATERIAL_CACHE: dict = {}
 
 
 def gather_persona_material(persona_name, persona):
-    """為一個版主收集素材:Reddit subs + HN keywords"""
+    """為一個版主收集素材:只用Reddit subs(不用HN,主題不合會讓文章跑偏)"""
     all_posts = []
 
-    # 1. Reddit (各版主自己的subs)
     for sub in persona.get("reddit_subs", []):
         posts = fetch_reddit_top(sub, limit=6)
         all_posts.extend(posts)
         time.sleep(0.4)
 
-    # 2. HN keywords
-    for kw in persona.get("hn_keywords", []):
-        posts = fetch_hn_search(kw, limit=4)
-        all_posts.extend(posts)
-        time.sleep(0.4)
-
-    # 去重
     seen_ids = set()
     unique = []
     for p in all_posts:
@@ -446,9 +438,9 @@ PERSONAS = {
         "rss_feeds": [
             "https://www.merckvetmanual.com/feed",
             "https://avmajournals.avma.org/action/showFeed?type=etoc&feed=rss&jc=javma",
+            "https://www.petmd.com/rss.xml",
         ],
         "reddit_subs": ["AskVet", "Veterinary"],
-        "hn_keywords": ["veterinary", "pet health", "animal disease", "zoonotic"],
         "writing_focus": "鑑別診斷、學術衛教翻譯成飼主能讀的語言、揭穿偽科學療法",
     },
     "渡鴉": {
@@ -462,9 +454,9 @@ PERSONAS = {
         "rss_feeds": [
             "https://www.petfoodindustry.com/rss",
             "https://www.americanveterinarian.com/rss",
+            "https://www.dogster.com/feed",
         ],
         "reddit_subs": ["dogs", "cats", "pets"],
-        "hn_keywords": ["pet industry", "pet food", "pet startup", "petco", "chewy"],
         "writing_focus": "拆穿產業話術、揭露智商稅商品、評析飼料和保健品的真實成本",
     },
     "Trilobite": {
@@ -478,9 +470,9 @@ PERSONAS = {
         "rss_feeds": [
             "https://www.vmgnow.com/feed/",
             "https://www.petsittersinternational.com/feed/",
+            "https://www.whole-dog-journal.com/feed/",
         ],
         "reddit_subs": ["Petloss", "AnimalsBeingBros"],
-        "hn_keywords": ["pet loss", "animal welfare", "shelter"],
         "writing_focus": "寵物離世、流浪動物、收容所制度、分離焦慮、安寧照護(冷面但不冷血)",
     },
     "Sword Smith": {
@@ -493,9 +485,9 @@ PERSONAS = {
         ),
         "rss_feeds": [
             "https://www.theguardian.com/lifeandstyle/animals/rss",
+            "https://www.iheartcats.com/feed",
         ],
         "reddit_subs": ["AnimalsBeingDerps", "Whatcouldgowrong"],
-        "hn_keywords": ["weird pet", "exotic animal", "pet news"],
         "writing_focus": "全球荒誕寵物事件、華語論壇圈內話題、產業內幕(冷面陳述)",
     },
 }
@@ -532,7 +524,6 @@ ORIGINAL_TOPICS = [
     # WebMeowD
     "貓咪老是吐毛球到底正不正常",
     "狗狗的分離焦慮到底是不是病",
-    "為什麼幼貓會吃自己的便便",
     "寵物的食物過敏怎麼判斷",
     "獸醫推薦的處方飼料為什麼這麼貴",
     "貓咪的腎臟病真的是吃出來的嗎",
@@ -859,8 +850,9 @@ WRITING_RULES = """
     - 「殺」→ 「處置」
     - 「大便/屎/糞便/排泄物/拉屎/屎尿屁/菊花」一律禁用
     - 「撿大便」→ 「清理/善後」、「拉屎」→ 「排便」、「大便」→ 「上廁所/排便/如廁」
-    - 「排泄物」「糞便」「未消化物殘渣」這類詞,即使在學術/醫學/演化討論語境下也一律禁用,不能用「合法學術詞彙」當理由放行。改用更抽象的說法,例如「那團東西」「異物」「不屬於食物的東西」,
-        或直接避開描述該物體本身,把焦點放在行為現象上。
+    - 「排泄物」「糞便」「未消化物殘渣」這類詞,即使在學術/醫學/演化討論語境下也一律禁用,
+      不能用「合法學術詞彙」當理由放行。改用更抽象的說法,例如「那團東西」「異物」「不屬於食物的東西」,
+      或直接避開描述該物體本身,把焦點放在行為現象上。
 18. 允許用詞:屁股/屁屁(動物的屁股是萌的不是低俗的)、貓砂盆(器材名詞)、嘔吐(醫療語境)
 19. 嚴禁「中國」、「中國人」、「大陸」、「內地」、「中共」、「國內」這些字眼
     可寫對岸發生的寵物事件,但要用「某些地區」、「特定市場」、「日本/歐洲/某海外論壇」這類模糊修辭
@@ -1596,8 +1588,8 @@ def generate_article_page(article):
     cat = article.get("cat", "")
     cat_name_map = {
         "webmeowd":   "WebMeowD",
-        "PetCon": "PetCon",
-        "FurWell":    "Fur-well",
+        "barkmarket": "PetCon",
+        "furwell":    "FurWell",
         "fairytails": "Fairy Tails",
         "media":      "Leek Factory",
         "salon":      "SALON",
@@ -1898,11 +1890,11 @@ def generate_html(articles, videos=None, new_articles=None):
     videos_json = json.dumps(videos, ensure_ascii=False).replace("</", "<\\/")
     categories = [
         {"key": "webmeowd",   "name": "WebMeowD",     "en": "焦慮奴才病歷室"},
-        {"key": "PetCon", "name": "PetCon",  "en": "寵物韭菜區"},
-        {"key": "FurWell",    "name": "FurWell",     "en": "生死兩茫茫"},
+        {"key": "barkmarket", "name": "PetCon",     "en": "寵物韭菜區"},
+        {"key": "furwell",    "name": "FurWell",   "en": "生死兩茫茫"},
         {"key": "fairytails", "name": "Fairy Tails",  "en": "全球寶貝怪談"},
         {"key": "fowlplay",   "name": "Fowlplay",     "en": "跨物種大火拚"},
-        {"key": "naspit",     "name": "納斯達坑",     "en": " Tail Court"},
+        {"key": "naspit",     "name": "納斯達坑",     "en": "Tail Court"},
         {"key": "media",      "name": "Leek Factory", "en": "Youtube Shorts"},
         {"key": "salon",      "name": "SALON",        "en": "By Invitation"},
     ]
