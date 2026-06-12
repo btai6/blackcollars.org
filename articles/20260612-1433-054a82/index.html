@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>餵養知識還是代工思考？</title>
+<meta name="description" content="有個剛學寫程式的菜鳥，連基本的遞迴邏輯都搞不懂，卻問我能不能用 AI 直接生成一套完整的寵物健康監測系統，好讓他省下研究開源硬體架構的時間。我當時看著他螢幕上跑出的那一堆冗長且充滿語法錯誤的程式碼，心想這哪是在學技術，根本是在給自己的腦袋找個舒適的墓地。…">
+<meta name="keywords" content="寵物怪談, 全球寵物事件, 寵物, 養寵物, 貓, 狗, 獸醫, 寵物保健, BLACK COLLARS, 華人寵物論壇">
+<meta name="author" content="BLACK COLLARS">
+<link rel="canonical" href="https://blackcollars.org/articles/20260612-1433-054a82/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="餵養知識還是代工思考？">
+<meta property="og:description" content="有個剛學寫程式的菜鳥，連基本的遞迴邏輯都搞不懂，卻問我能不能用 AI 直接生成一套完整的寵物健康監測系統，好讓他省下研究開源硬體架構的時間。我當時看著他螢幕上跑出的那一堆冗長且充滿語法錯誤的程式碼，心想這哪是在學技術，根本是在給自己的腦袋找個舒適的墓地。…">
+<meta property="og:url" content="https://blackcollars.org/articles/20260612-1433-054a82/">
+<meta property="og:site_name" content="BLACK COLLARS">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-12T14:33:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="餵養知識還是代工思考？">
+<meta name="twitter:description" content="有個剛學寫程式的菜鳥，連基本的遞迴邏輯都搞不懂，卻問我能不能用 AI 直接生成一套完整的寵物健康監測系統，好讓他省下研究開源硬體架構的時間。我當時看著他螢幕上跑出的那一堆冗長且充滿語法錯誤的程式碼，心想這哪是在學技術，根本是在給自己的腦袋找個舒適的墓地。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "餵養知識還是代工思考？",
+  "description": "有個剛學寫程式的菜鳥，連基本的遞迴邏輯都搞不懂，卻問我能不能用 AI 直接生成一套完整的寵物健康監測系統，好讓他省下研究開源硬體架構的時間。我當時看著他螢幕上跑出的那一堆冗長且充滿語法錯誤的程式碼，心想這哪是在學技術，根本是在給自己的腦袋找個舒適的墓地。…",
+  "datePublished": "2026-06-12T14:33:00+08:00",
+  "dateModified": "2026-06-12T14:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK COLLARS",
+    "url": "https://blackcollars.org"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blackcollars.org/articles/20260612-1433-054a82/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK COLLARS</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Fairy Tails<span class="dot">·</span>2026-06-12 14:33
+  </div>
+
+  <h1 class="title">餵養知識還是代工思考？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>有個剛學寫程式的菜鳥，連基本的遞迴邏輯都搞不懂，卻問我能不能用 AI 直接生成一套完整的寵物健康監測系統，好讓他省下研究開源硬體架構的時間。我當時看著他螢幕上跑出的那一堆冗長且充滿語法錯誤的程式碼，心想這哪是在學技術，根本是在給自己的腦袋找個舒適的墓地。現在市面上出現了像是 Lathe 這類強調「引導學習」而非「全自動代工」的工具，聽起來像是給那些被餵養慣的技術侏儒們準備的復健器材，但這場景似曾相識，當初那些被電子逗貓棒養廢的家貓，不也正是因為懶得動腦捕獵，最後連基礎的生理協調能力都退化了？</p>
+    <p>說穿了，這不過是焦慮症狀的變體。當技術門檻被 AI 抹平到連個位數年齡的孩童都能生成一個網站時，人類對「習得知識」的渴望徹底被「取得成果」的速效感取代。寵物圈內這類現象更為荒謬，某些飼主連基本的飲食營養比例都懶得看，直接丟給 AI 算出一份所謂的「最適化配方」，結果導致五歲以下的幼貓因為缺乏關鍵氨基酸而出現心肌肥大。AI 給出的數據永遠是正確的平均值，但生命個體是極端且充滿變數的，你用統計學邏輯去養一隻患有慢性腎病的銀狐犬，就像是用過時的地圖去導航一座已經位移的冰山。那些聲稱能輔助學習的工具，本質上只是在減少人類與現實磨合的摩擦力，但成長往往恰恰發生在摩擦最劇烈的時刻。</p>
+    <p>看看日本或是歐陸那些傳統的寵物訓練機構，他們甚至禁止訓練師在初期使用任何數位化的輔助計數器，要求一切回歸到對動物眼神、肌肉張力、呼吸頻率的感官判斷。反觀我們這邊，不少人整天盯著穿戴式設備的數據圖表，卻連自家狗兒現在是焦慮還是興奮都看不出來。當我們把學習過程外包給模型，把觀察權交給演算法，我們實際上是在放棄作為飼主、作為學習者最核心的權利：犯錯與修正的權利。一個沒有經歷過挫折的學習過程，就像是一隻永遠被關在防護罩裡的寵物，牠或許外表光鮮亮麗，但只要一旦失去 AI 的護持，或者遇到突發的環境變異，牠們根本沒有活下去的本能。</p>
+    <p>你真的以為把代碼或是寵物照護知識「手寫一遍」就能換來深度理解？當 Lathe 這類產品開始標榜「讓你手動輸入」以增加參與感時，這本身就是對人類專注力的一種諷刺——我們已經懶到需要一個工具來提醒自己：「嘿，動手操作是很重要的」。</p>
+    <p>如果連獲取知識的過程都要被設計成一種「極簡化」的體驗，那麼我們到底是在進化，還是正在優化自己走向集體的無能？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK COLLARS</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK COLLARS · https://blackcollars.org/articles/20260612-1433-054a82/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
