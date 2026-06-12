@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 BLACK COLLARS — 華人寵物論壇自動化系統
-- 8 板塊首頁：WebMeowD / Bark Market / Fur-well / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
+- 8 板塊首頁：WebMeowD / PetCon / FurWell / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
 - 四版主分工:
     Scholar     → WebMeowD     (學術期刊 + 大學衛教)
-    渡鴉        → Bark Market  (英文寵物社群 + 產業內幕)
-    Trilobite   → Fur-well     (日文 + 歐洲寵物資訊)
+    渡鴉        → PetCon  (英文寵物社群 + 產業內幕)
+    Trilobite   → FurWell     (日文 + 歐洲寵物資訊)
     Sword Smith → Fairy Tails  (華語論壇 + 全球寶貝怪談)
 - Fowlplay 跨物種大火拚:35題獨立排行榜、5題位輪播、100票進名人堂
 - 納斯達坑:26場雷達圖隨機不重複、一週一場、四版主輪值裁判、不偏袒
@@ -453,7 +453,7 @@ PERSONAS = {
     },
     "渡鴉": {
         "title": "版主",
-        "domain": "Bark Market · 寵物韭菜區",
+        "domain": "PetCon · 寵物韭菜區",
         "personality": (
             "犬儒看破紅塵,嘴賤但精準。常常一語道破,戳到痛處。"
             "喜歡用反問、冷笑話。偶爾有金句但不刻意。"
@@ -469,7 +469,7 @@ PERSONAS = {
     },
     "Trilobite": {
         "title": "版主",
-        "domain": "Fur-well · 情債催討室",
+        "domain": "FurWell · 生死兩茫茫",
         "personality": (
             "女性視角,冷靜直接但不刻薄。講話帶點文藝氣質但不矯情。"
             "有自己的觀點,不跟風。"
@@ -537,14 +537,14 @@ ORIGINAL_TOPICS = [
     "獸醫推薦的處方飼料為什麼這麼貴",
     "貓咪的腎臟病真的是吃出來的嗎",
     "狗狗為什麼要趴你身上睡",
-    # Bark Market
+    # PetCon
     "寵物展買回來的東西十個有八個沒在用",
     "保健食品的廣告話術可以拆成幾層",
     "為什麼貴的飼料不一定好",
     "寵物美容業背後的真實時薪",
     "自動餵食器到底是省事還是燒錢",
     "智能項圈的數據到底準不準",
-    # Fur-well
+    # FurWell
     "老寵物的安寧照護該怎麼準備",
     "搬家對寵物的影響比你想得久",
     "為什麼收容所的動物總是緊張",
@@ -859,6 +859,8 @@ WRITING_RULES = """
     - 「殺」→ 「處置」
     - 「大便/屎/糞便/排泄物/拉屎/屎尿屁/菊花」一律禁用
     - 「撿大便」→ 「清理/善後」、「拉屎」→ 「排便」、「大便」→ 「上廁所/排便/如廁」
+    - 「排泄物」「糞便」「未消化物殘渣」這類詞,即使在學術/醫學/演化討論語境下也一律禁用,不能用「合法學術詞彙」當理由放行。改用更抽象的說法,例如「那團東西」「異物」「不屬於食物的東西」,
+        或直接避開描述該物體本身,把焦點放在行為現象上。
 18. 允許用詞:屁股/屁屁(動物的屁股是萌的不是低俗的)、貓砂盆(器材名詞)、嘔吐(醫療語境)
 19. 嚴禁「中國」、「中國人」、「大陸」、「內地」、「中共」、「國內」這些字眼
     可寫對岸發生的寵物事件,但要用「某些地區」、「特定市場」、「日本/歐洲/某海外論壇」這類模糊修辭
@@ -1594,8 +1596,8 @@ def generate_article_page(article):
     cat = article.get("cat", "")
     cat_name_map = {
         "webmeowd":   "WebMeowD",
-        "barkmarket": "Bark Market",
-        "furwell":    "Fur-well",
+        "PetCon": "PetCon",
+        "FurWell":    "Fur-well",
         "fairytails": "Fairy Tails",
         "media":      "Leek Factory",
         "salon":      "SALON",
@@ -1896,11 +1898,11 @@ def generate_html(articles, videos=None, new_articles=None):
     videos_json = json.dumps(videos, ensure_ascii=False).replace("</", "<\\/")
     categories = [
         {"key": "webmeowd",   "name": "WebMeowD",     "en": "焦慮奴才病歷室"},
-        {"key": "barkmarket", "name": "Bark Market",  "en": "寵物韭菜區"},
-        {"key": "furwell",    "name": "Fur-well",     "en": "情債催討室"},
+        {"key": "PetCon", "name": "PetCon",  "en": "寵物韭菜區"},
+        {"key": "FurWell",    "name": "FurWell",     "en": "生死兩茫茫"},
         {"key": "fairytails", "name": "Fairy Tails",  "en": "全球寶貝怪談"},
         {"key": "fowlplay",   "name": "Fowlplay",     "en": "跨物種大火拚"},
-        {"key": "naspit",     "name": "納斯達坑",     "en": "雷達圖測評"},
+        {"key": "naspit",     "name": "納斯達坑",     "en": " Tail Court"},
         {"key": "media",      "name": "Leek Factory", "en": "Youtube Shorts"},
         {"key": "salon",      "name": "SALON",        "en": "By Invitation"},
     ]
