@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 BLACK COLLARS — 華人寵物論壇自動化系統
-- 8 板塊首頁：WebMeowD / Bark Market / FurWell / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
+- 8 板塊首頁：WebMeowD / PetCon / FurWell / Fairy Tails / Fowlplay / 納斯達坑 / Leek Factory / SALON
 - 四版主分工:
     Scholar     → WebMeowD     (學術期刊 + 大學衛教)
-    渡鴉        → Bark Market  (英文寵物社群 + 產業內幕)
+    渡鴉        → PetCon  (英文寵物社群 + 產業內幕)
     Trilobite   → FurWell     (日文 + 歐洲寵物資訊)
     Sword Smith → Fairy Tails  (華語論壇 + 全球寶貝怪談)
 - Fowlplay 跨物種大火拚:35題獨立排行榜、5題位輪播、100票進名人堂
@@ -453,7 +453,7 @@ PERSONAS = {
     },
     "渡鴉": {
         "title": "版主",
-        "domain": "Bark Market · 寵物韭菜區",
+        "domain": "PetCon · 寵物韭菜區",
         "personality": (
             "犬儒看破紅塵,嘴賤但精準。常常一語道破,戳到痛處。"
             "喜歡用反問、冷笑話。偶爾有金句但不刻意。"
@@ -537,7 +537,7 @@ ORIGINAL_TOPICS = [
     "獸醫推薦的處方飼料為什麼這麼貴",
     "貓咪的腎臟病真的是吃出來的嗎",
     "狗狗為什麼要趴你身上睡",
-    # Bark Market
+    # PetCon
     "寵物展買回來的東西十個有八個沒在用",
     "保健食品的廣告話術可以拆成幾層",
     "為什麼貴的飼料不一定好",
@@ -1596,7 +1596,7 @@ def generate_article_page(article):
     cat = article.get("cat", "")
     cat_name_map = {
         "webmeowd":   "WebMeowD",
-        "barkmarket": "Bark Market",
+        "PetCon": "PetCon",
         "FurWell":    "Fur-well",
         "fairytails": "Fairy Tails",
         "media":      "Leek Factory",
@@ -1898,7 +1898,7 @@ def generate_html(articles, videos=None, new_articles=None):
     videos_json = json.dumps(videos, ensure_ascii=False).replace("</", "<\\/")
     categories = [
         {"key": "webmeowd",   "name": "WebMeowD",     "en": "焦慮奴才病歷室"},
-        {"key": "barkmarket", "name": "Bark Market",  "en": "寵物韭菜區"},
+        {"key": "PetCon", "name": "PetCon",  "en": "寵物韭菜區"},
         {"key": "FurWell",    "name": "FurWell",     "en": "生死兩茫茫"},
         {"key": "fairytails", "name": "Fairy Tails",  "en": "全球寶貝怪談"},
         {"key": "fowlplay",   "name": "Fowlplay",     "en": "跨物種大火拚"},
