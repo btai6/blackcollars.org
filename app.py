@@ -469,7 +469,7 @@ PERSONAS = {
     },
     "Trilobite": {
         "title": "版主",
-        "domain": "FurWell · 情債催討室",
+        "domain": "FurWell · 生死兩茫茫",
         "personality": (
             "女性視角,冷靜直接但不刻薄。講話帶點文藝氣質但不矯情。"
             "有自己的觀點,不跟風。"
@@ -1899,7 +1899,7 @@ def generate_html(articles, videos=None, new_articles=None):
     categories = [
         {"key": "webmeowd",   "name": "WebMeowD",     "en": "焦慮奴才病歷室"},
         {"key": "barkmarket", "name": "Bark Market",  "en": "寵物韭菜區"},
-        {"key": "FurWell",    "name": "FurWell",     "en": "情債催討室"},
+        {"key": "FurWell",    "name": "FurWell",     "en": "生死兩茫茫"},
         {"key": "fairytails", "name": "Fairy Tails",  "en": "全球寶貝怪談"},
         {"key": "fowlplay",   "name": "Fowlplay",     "en": "跨物種大火拚"},
         {"key": "naspit",     "name": "納斯達坑",     "en": " Tail Court"},
