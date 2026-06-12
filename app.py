@@ -1902,7 +1902,7 @@ def generate_html(articles, videos=None, new_articles=None):
         {"key": "furwell",    "name": "Fur-well",     "en": "情債催討室"},
         {"key": "fairytails", "name": "Fairy Tails",  "en": "全球寶貝怪談"},
         {"key": "fowlplay",   "name": "Fowlplay",     "en": "跨物種大火拚"},
-        {"key": "naspit",     "name": "納斯達坑",     "en": "雷達圖測評"},
+        {"key": "naspit",     "name": "納斯達坑",     "en": " Tail Court"},
         {"key": "media",      "name": "Leek Factory", "en": "Youtube Shorts"},
         {"key": "salon",      "name": "SALON",        "en": "By Invitation"},
     ]
