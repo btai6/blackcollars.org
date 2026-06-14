@@ -1,7 +1,7 @@
 name: BLACK COLLARS Daily Update
 on:
   schedule:
-    - cron: '0 20 * * *'
+    - cron: '0 22 * * *'
   workflow_dispatch:
 jobs:
   build:
