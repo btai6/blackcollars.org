@@ -2,9 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blackcollars.org/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0611-c4b9b6/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0612-d22717/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0613-c1ece9/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0614-970f1c/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0616-71f368/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0616-69426f/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0618-755fe7/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blackcollars.org/articles/20260822-0618-675ff1/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://blackcollars.org/articles/20260821-0614-d22abe/</loc>
