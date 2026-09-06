@@ -1,6 +1,5 @@
 {
   "queue": [
-    "r16",
     "r17",
     "r01",
     "r07",
@@ -27,9 +26,10 @@
     "r26",
     "r19",
     "r14",
-    "r24"
+    "r24",
+    "r16"
   ],
-  "judge_index": 0,
-  "round": 12,
+  "judge_index": 1,
+  "round": 13,
   "hall_of_fame": []
 }
